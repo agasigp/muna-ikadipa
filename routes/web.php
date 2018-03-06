@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'registration')->name('registration');
+Route::post('registration', 'Registration')->name('registration.store');
 
 Auth::routes();
 
