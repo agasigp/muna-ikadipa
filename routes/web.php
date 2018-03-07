@@ -16,4 +16,7 @@ Route::post('registration', 'Registration')->name('registration.store');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/participant', 'ParticipantController');
+});
