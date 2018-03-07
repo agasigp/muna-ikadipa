@@ -12,6 +12,7 @@
 */
 
 Route::view('/', 'registration')->name('registration');
+Route::view('terms-condition', 'terms-condition')->name('terms');
 Route::post('registration', 'Registration')->name('registration.store');
 
 Auth::routes();

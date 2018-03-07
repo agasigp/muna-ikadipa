@@ -180,7 +180,7 @@
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreement">
-                            <label class="form-check-label" for="exampleCheck1">Setuju dengan ketentuan yang berlaku.</label>
+                            <label class="form-check-label" for="exampleCheck1">Setuju dengan <a href="url('terms-condition')">ketentuan yang berlaku</a>.</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
