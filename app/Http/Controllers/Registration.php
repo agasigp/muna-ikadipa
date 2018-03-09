@@ -28,6 +28,7 @@ class Registration extends Controller
             $participant->telephone = $request->telephone;
             $participant->email = $request->email;
             $participant->parent_name = $request->parent;
+            $participant->region = $request->region;
             $participant->save();
 
             foreach ($request->participant_detail_name as $key => $val) {

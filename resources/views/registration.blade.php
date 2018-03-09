@@ -63,6 +63,14 @@
                             {{--  <small id="noHpHelp" class="form-text text-muted">No Handphone</small>  --}}
                         </div>
                         <div class="form-group">
+                            <label for="email">Wilayah</label>
+                            <select name="region" class="form-control">
+                                <option value="1">Barat</option>
+                                <option value="2">Tengah</option>
+                                <option value="3">Timur</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="nama_ortu">Nama Orang Tua (Yang termasuk trah Kartadipa)</label>
                             <input type="text" class="form-control" id="nama_ortu" aria-describedby="namaOrtuHelp" placeholder="Nama Orang Tua Yang Termasuk Trah Kartadipa" name="parent" required>
                             {{--  <small id="namaOrtuHelp" class="form-text text-muted">Nama Orang Tua (Yang termasuk trah Kartadipa)</small>  --}}
