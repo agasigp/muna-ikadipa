@@ -51,7 +51,7 @@
                                 $no = $participants->perPage() * ($participants->currentPage() - 1) + 1;
                             }
                         ?>
-                        <table class="table table-sm">
+                        <table class="table table-sm table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -60,6 +60,7 @@
                                     <th scope="col">No HP</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Nama Orang Tua (Trah Kartadipa)</th>
+                                    <th scope="col">Wilayah</th>
                                     <th scope="col">Status Pembayaran</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -75,6 +76,24 @@
                                         <td>{{ $participant->telephone }}</td>
                                         <td>{{ $participant->email }}</td>
                                         <td>{{ $participant->parent_name }}</td>
+                                        <td>
+                                            <?php
+                                                switch ($participant->region) {
+                                                    case '1':
+                                                        echo 'Barat';
+                                                        break;
+                                                    case '2':
+                                                        echo 'Tengah';
+                                                        break;
+                                                    case '3':
+                                                        echo 'Timur';
+                                                        break;
+                                                    default:
+                                                        # code...
+                                                        break;
+                                                }
+                                            ?>
+                                        </td>
                                         <?php
                                             if ($participant->status == 0) {
                                                 $message = 'Belum bayar';
