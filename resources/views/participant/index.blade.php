@@ -109,6 +109,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $participants->links() }}
                     @endif
                 </div>
             </div>
