@@ -12,12 +12,15 @@
 */
 
 Route::view('/', 'registration')->name('registration');
+Route::view('donation', 'donation')->name('donation');
 Route::view('terms-condition', 'terms-condition')->name('terms');
 Route::post('registration', 'Registration')->name('registration.store');
+Route::post('donation', 'Donation')->name('donation.store');
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/participant', 'ParticipantController');
+    Route::resource('/donations', 'DonationController');
 });

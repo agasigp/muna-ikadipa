@@ -11,7 +11,6 @@ class Registration extends Controller
 {
     public function __invoke(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'name' => 'required',
             'address' => 'required',
