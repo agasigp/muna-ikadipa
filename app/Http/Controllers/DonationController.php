@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Donation;
 use Illuminate\Http\Request;
+use App\Models\Donation;
 
 class DonationController extends Controller
 {
@@ -12,52 +12,11 @@ class DonationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Donation  $donation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Donation  $donation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Donation $donation)
-    {
-        //
+        return view('donation.index', [
+            'donations' => Donation::where('name', 'LIKE', '%' . $request->input('q', '') . '%')->paginate(10),
+        ]);
     }
 
     /**
@@ -67,9 +26,14 @@ class DonationController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donation $donation)
+    public function update(Request $request, $id)
     {
-        //
+        $donation =  Donation::findOrFail($id);
+        $donation->status = $request->status;
+        $donation->save();
+
+        $request->session()->flash('success', 'Ubah status pembayaran berhasil!');
+        return redirect()->route('donations.index');
     }
 
     /**
