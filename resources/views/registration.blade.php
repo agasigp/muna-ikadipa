@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label for="no_hp">No HP</label>
-                            <input type="text" class="form-control" id="no_hp" aria-describedby="noHpHelp" placeholder="No Handphone" name="telephone" required>
+                            <input type="number" class="form-control" id="no_hp" aria-describedby="noHpHelp" placeholder="No Handphone" name="telephone" required>
                             {{--  <small id="noHpHelp" class="form-text text-muted">No Handphone</small>  --}}
                         </div>
                         <div class="form-group">
@@ -188,7 +188,7 @@
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreement">
-                            <label class="form-check-label" for="exampleCheck1">Setuju dengan <a href="url('terms-condition')">ketentuan yang berlaku</a>.</label>
+                            <label class="form-check-label" for="exampleCheck1">Setuju dengan <a href="{{ route('terms') }}">ketentuan yang berlaku</a>.</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>

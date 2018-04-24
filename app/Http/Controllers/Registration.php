@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Models\Participant;
 use App\Models\ParticipantDetail;
+use App\Notifications\ParticipantConfirmation;
 
 class Registration extends Controller
 {
@@ -22,6 +23,7 @@ class Registration extends Controller
 
         DB::transaction(function () use ($request) {
             $participant = new Participant();
+            $participant->registration_no = registration_no();
             $participant->name = $request->name;
             $participant->address = $request->address;
             $participant->telephone = $request->telephone;
@@ -40,9 +42,11 @@ class Registration extends Controller
                     $participant_detail->save();
                 }
             }
+
+            $participant->notify(new ParticipantConfirmation($participant));
         });
 
-        $request->session()->flash('success', 'Pendaftaran berhasil!');
+        $request->session()->flash('success', 'Pendaftaran berhasil! Silahkan cek email untuk keterangan lebih lanjut.');
         return redirect()->route('registration');
     }
 }

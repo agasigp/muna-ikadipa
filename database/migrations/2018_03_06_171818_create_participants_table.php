@@ -15,6 +15,7 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
+            $table->char('registration_no', 15);
             $table->unsignedTinyInteger('region')->description('1 = Barat, 2 = Tengah, 3 = Timur');
             $table->string('name', 50);
             $table->string('address', 255);
