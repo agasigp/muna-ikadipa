@@ -31,6 +31,8 @@
                         @auth
                             <a href="{{ route('participant.index') }}">Peserta</a>
                         @endauth
+                            <a href="{{ route('donation') }}">Donasi</a>
+                            {{-- <a href="{{ route('committee') }}">Panitia</a> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->

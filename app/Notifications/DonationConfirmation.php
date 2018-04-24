@@ -41,7 +41,6 @@ class DonationConfirmation extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = env('APP_URL') . '/payment-confirm';
         return (new MailMessage)
                     ->subject('Konfirmasi Pendaftaran Donatur Muna IKADIPA Ke XII')
                     ->view('notifications.donationconfirm', ['donation' => $this->donation]);
