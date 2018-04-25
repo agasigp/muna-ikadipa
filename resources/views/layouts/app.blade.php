@@ -29,10 +29,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @auth
-                            <a href="{{ route('participant.index') }}">Peserta</a>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('participant.index') }}">Peserta</a></li>
                         @endauth
-                            <a href="{{ route('donation') }}">Donasi</a>
-                            {{-- <a href="{{ route('committee') }}">Panitia</a> --}}
+                            <li class="nav-item {{ $menu == 'donation' ? 'active' : '' }}"><a class="nav-link" href="{{ route('donation') }}">Donasi</a></li>
+                            <li class="nav-item {{ $menu == 'terms' ? 'active' : '' }}"><a class="nav-link" href="{{ route('terms') }}">Syarat & Ketentuan</a></li>
+                            <li class="nav-item {{ $menu == 'committee' ? 'active' : '' }}"><a class="nav-link" href="{{ route('committee') }}">Panitia</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

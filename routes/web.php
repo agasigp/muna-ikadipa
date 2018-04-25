@@ -12,10 +12,11 @@
 */
 
 Route::view('/', 'registration')->name('registration');
-Route::view('donation', 'donation')->name('donation');
-Route::view('terms-condition', 'terms-condition')->name('terms');
+Route::view('donation', 'donation', ['menu' => 'donation'])->name('donation');
+Route::view('terms-condition', 'terms-condition', ['menu' => 'terms'])->name('terms');
 Route::post('registration', 'Registration')->name('registration.store');
 Route::post('donation', 'Donation')->name('donation.store');
+Route::view('committee', 'committee', ['menu' => 'committee'])->name('committee');
 
 Auth::routes();
 

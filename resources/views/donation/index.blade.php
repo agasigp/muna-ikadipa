@@ -92,7 +92,9 @@
                                                 }
                                             ?>
                                         </td>
-                                        <td>{{ number_format($donation->amount, 0, ',', '.') }}</td>
+                                        <td>
+                                            <a href="">{{ number_format($donation->amount, 0, ',', '.') }}</a>
+                                        </td>
                                         <td>{{ $donation->transfered_on }}</td>
                                         <?php
                                             if ($donation->status == 0) {
