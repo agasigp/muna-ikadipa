@@ -31,9 +31,9 @@
                         @auth
                             <li class="nav-item"><a class="nav-link" href="{{ route('participant.index') }}">Peserta</a></li>
                         @endauth
-                            <li class="nav-item {{ $menu == 'donation' ? 'active' : '' }}"><a class="nav-link" href="{{ route('donation') }}">Donasi</a></li>
-                            <li class="nav-item {{ $menu == 'terms' ? 'active' : '' }}"><a class="nav-link" href="{{ route('terms') }}">Syarat & Ketentuan</a></li>
-                            <li class="nav-item {{ $menu == 'committee' ? 'active' : '' }}"><a class="nav-link" href="{{ route('committee') }}">Panitia</a></li>
+                            <li class="nav-item @yield('donation')"><a class="nav-link" href="{{ route('donation') }}">Donasi</a></li>
+                            <li class="nav-item @yield('terms')"><a class="nav-link" href="{{ route('terms') }}">Syarat & Ketentuan</a></li>
+                            <li class="nav-item @yield('committee')"><a class="nav-link" href="{{ route('committee') }}">Panitia</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
